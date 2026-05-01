@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path("flooddata/", views.DataListView.as_view(), name="data-list"),
-    path("flooddata/receive/", views.receive_data, name="receive-data"),
+    path("flooddata/receive/", views.FloodDataAPIView.as_view(), name="receive-data"),
 ]
