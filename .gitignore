@@ -1,0 +1,10 @@
+.venv
+__pycache__/
+migrations
+db.sqlite3
+node_modules/
+build/
+.env
+coverage/
+*.log
+.vite/
