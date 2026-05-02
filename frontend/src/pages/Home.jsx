@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import DataTable from "../components/DataTable"
 import api from "../api"
+import ChartComponent from "../components/ChartComponent"
+import "../styles/Home.css"
 
 function Home() {
   const [flooddata, setFlooddata] = useState([]);
@@ -22,9 +24,25 @@ function Home() {
 
   return (
     <>
-      Home
+      {/* <DataTable data={flooddata}/> */}
+      <div className="dashboard">
+      <h1>Flood Monitoring Dashboard</h1>
 
-      <DataTable data={flooddata}/>
+      <div className="cards">
+        <div className="card" >🌊 Status: <span style={{
+            color:
+              flooddata[0]?.status === "danger" ? "red":
+              flooddata[0]?.status === "warning" ? "orange": "green"
+          }}>{flooddata[0]?.status}</span></div>
+        <div className="card">📏 Distance: {flooddata[0]?.distance}</div>
+        <div className="card">💧 Flow: {flooddata[0]?.flow}</div>
+      </div>
+
+      <div className="grid">
+        <DataTable data={flooddata} />
+        <ChartComponent data={flooddata} />
+      </div>
+    </div>
     </>
   )
 }
