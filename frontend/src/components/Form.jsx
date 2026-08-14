@@ -7,8 +7,8 @@ import LoadingIndicator from "./LoadingIndicator"
 
 
 function Form({route, method}){
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("admin");
+  const [password, setPassword] = useState("admin");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
